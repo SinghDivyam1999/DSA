@@ -1,0 +1,12 @@
+9001. Pow(x, n) **
+      Dry run once with the algo
+
+9002. Count Good number(1922)
+      Revise Fast exponentiation function and MOD uses
+
+9003. Count Number of generated binary string without Consecutive 1s **
+       next is to return all such binary string
+
+9004. Generate Parathesis**
+
+            

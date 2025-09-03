@@ -1,0 +1,100 @@
+9001. Pow(x, n) ||Medium 
+class Solution {
+    public double myPow(double x, int n) {
+        double ans = 1.0;
+        long nn = n;//change n to nn to avoid integer overflow for int absolute value
+        if (nn < 0) nn = nn * -1; //conver negative value to positive
+        while (nn > 0) {
+            //odd nn
+            if (nn % 2 == 1) {
+                ans = ans * x;
+                nn = nn - 1;
+            } else {
+                x = x * x;
+                nn = nn / 2;
+            }
+        }
+        if (n < 0)
+            return (double) 1.0 / (double) ans;
+        return ans;
+    }
+}
+
+9002. class Solution {
+    
+    static final long MOD = 1_000_000_007;
+
+    // Fast exponentiation function
+    public long power(long base, long exponent) {
+        long result = 1;
+        base = base % MOD;
+
+        while (exponent > 0) {
+            if (exponent % 2 == 1) {
+                result = (result * base) % MOD;
+            }
+            base = (base * base) % MOD;
+            //Optimize exponentiation
+            exponent /= 2;
+        }
+
+        return result;
+    }
+
+    public int countGoodNumbers(long n) {
+        long evenCount = (n + 1) / 2; // ceil(n / 2)
+        long oddCount = n / 2;        // floor(n / 2)
+
+        long evenChoices = power(5, evenCount);
+        long oddChoices = power(4, oddCount);
+
+        return (int)((evenChoices * oddChoices) % MOD);
+    }
+
+}
+
+9003. 
+
+ class Solution {
+    public List<String> generateBinaryStrings(int n) {
+        int zeroended=1;
+        int oneendedd=1;
+        int sum= zeroended+oneendedd;
+        int i=2;
+        while(n<i){  //Compare length with number of steps taken to build string as i
+            if(n=1) return sum;
+            oneendedd=zeroended % (100000007); //MODs to avoid large numbers
+            zeroended=sum % (100000007);
+            sum=(oneendedd+zeroended) % (100000007);
+            i++;
+        }
+        return sum;
+    }
+ }
+
+ 9004.
+   Generate Parathesis
+   class Solution {
+    public List<String> generateParenthesis(int n) {
+
+        List<String> result = new ArrayList<>();
+        backtrack(n, n, result, "");
+        return result;
+    }
+
+    void backtrack(int openN, int closeN, List<String> result, String current) {
+        //Base case
+        if (openN == 0 && closeN == 0) {
+            result.add(current);
+            return;
+        }
+        // Add '(' if any are left
+        if (openN>0) {
+            backtrack(openN - 1, closeN, result, current + "(" );
+        }
+        //Add ')' only if it won't break the balance
+        if (closeN>openN) {
+            backtrack( openN, closeN - 1, result, current + ")" );
+        }
+    }
+}

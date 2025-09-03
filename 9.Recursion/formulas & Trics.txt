@@ -1,0 +1,20 @@
+-->
+Even indexes in a digit string= (N+1)/2
+Odd "".....................   =N/2
+
+-->
+  Binary exponentiation 
+    public long power(long base, long exponent) {
+        long result = 1;
+        base = base % MOD;
+
+        while (exponent > 0) {
+            if (exponent % 2 == 1) {
+                result = (result * base) % MOD;
+            }
+            base = (base * base) % MOD;
+            exponent /= 2;
+        }
+
+        return result;
+    }
