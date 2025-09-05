@@ -100,9 +100,12 @@ class Solution {
 }
 
 9006. 
-         private  Boolean recSorted(int[] arr, int index) {
+         private recSorted(int[] arr, int index) {
         if (index == arr.length - 1) {
             return true;
         }
         return arr[index] < arr[index + 1] && recSorted(arr, index + 1);
     }
+
+9007.    
+         

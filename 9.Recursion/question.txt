@@ -11,4 +11,6 @@
 
 9006. Check if the given array is sorted or not
 
+9007. Check if the target element is present
+
             
