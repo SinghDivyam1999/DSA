@@ -163,4 +163,10 @@ class Solution {
     }
 
 9007.    
+      private static Boolean search(int[] arr,int target, int index) {
+        if (index == arr.length - 1) {
+            return false;
+        }
+        return arr[index]==target ||  search(arr,target,index+1);
+    }
          

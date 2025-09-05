@@ -17,5 +17,7 @@
 9005. Print all subsequences/Power Set [Unsolved] * 
          Do while doing bit manupulation and solve other subsequences related questions       
 
-9006. Binary Search [Build more deep understanding here]       
+9006. Binary Search [Build more deep understanding here]      
+
+9007. Linear target search element in array
             
