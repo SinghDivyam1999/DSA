@@ -8,9 +8,14 @@
        next is to return all such binary string
 
 9004. Generate Parathesis**
-
+        Revisit backtracking tree to understand more
+        
 9006. Check if the given array is sorted or not
 
 9007. Check if the target element is present
 
+9005. Print all subsequences/Power Set [Unsolved] * 
+         Do while doing bit manupulation and solve other subsequences related questions       
+
+9006. Binary Search [Build more deep understanding here]       
             
