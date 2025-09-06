@@ -1,17 +1,19 @@
-9001. Pow(x, n) **
+9001. Pow(x, n) ** || Medium
       Dry run once with the algo
 
-9002. Count Good number(1922)
+9002. Count Good number(L.C-1922) || Medium
       Revise Fast exponentiation function and MOD uses
 
-9003. Count Number of generated binary string without Consecutive 1s **
+9003. Count Number of generated binary string without Consecutive 1s ** || Medium
        next is to return all such binary string
 
-9004. Generate Parathesis**
+9004. Generate Parathesis** || Medium
         Revisit backtracking tree to understand more
         
-9005. Print all subsequences/Power Set [Unsolved] * 
+9005. Print all subsequences/Power Set [Unsolved] * || Medium
          Do while doing bit manupulation and solve other subsequences related questions       
 
-9006. Binary Search [Build more deep understanding here]       
+9006. Binary Search [Build more deep understanding here]    || Easy 
+
+9007. Reduce number per condition. || Easy 
             
