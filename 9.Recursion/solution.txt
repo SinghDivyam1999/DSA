@@ -191,3 +191,32 @@ class Solution {
         }
         return arr[index]==target ||  search(arr,target,index+1);
     }
+
+9008.
+       int sortedCheck(int[] arr, int s, int e, int target) {
+        //Base case as couldn't find target
+        if (s > e) {
+            return -1;
+        }
+        //if mid element is the target element
+        int m = s + (e - s) / 2;
+        if (arr[m] == target) {
+            return m;
+        }
+        //if mid is greater than start(left half is sorted) -->element range is fixed here
+        if (arr[m] >= arr[s]) {
+            if (target >= arr[s] && target <= arr[m]) {
+                return sortedCheck(arr, s, m - 1, target);
+            } else {
+                return sortedCheck(arr, m + 1, arr.length - 1, target);
+            }
+        }
+        //if mid is smaller than end (right half is sorted) -->element range is fixed here
+        else {
+            if (target >= arr[m] && target <= arr[e]) {
+                return sortedCheck(arr, m + 1, e, target);
+            }
+            return sortedCheck(arr, s, m - 1, target);
+        }
+    }
+
