@@ -21,5 +21,7 @@
 
 9007. Linear target search element in array
 
-9008. Rotaed binary search
+9008. Rotated binary search
+
+9009. Binary search 
             
