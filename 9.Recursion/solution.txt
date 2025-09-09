@@ -251,3 +251,35 @@ class Solution {
         sort(arr, length - 1, 0);
     }
 }
+
+9010. 
+
+     public class SelectionSort {
+    public static void main(String[] args) {
+        int[] arr = {1, 3, 4, 2};
+
+        sort(arr, arr.length , 0,0);
+        System.out.println(Arrays.toString(arr));
+    }
+
+     static void sort(int[] arr, int r, int c,int maxIdx) {
+        //Base case
+        if(r==0){
+            return;
+        }
+        //Make element comparison from c(Current left index) to r(end index)
+        if(c<r){
+            if(arr[c]>arr[maxIdx]){
+                sort(arr,r,c+1,c);
+            }else{
+                sort(arr,r,c+1,maxIdx);
+            }
+        }else{
+            int temp=arr[maxIdx];
+            arr[maxIdx]=arr[r-1];
+            arr[r-1]=temp;
+        }
+        sort(arr,r-1,0,0);
+
+    }
+}
