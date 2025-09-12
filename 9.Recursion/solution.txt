@@ -283,3 +283,50 @@ class Solution {
 
     }
 }
+
+9011.
+   --With new array 
+       int[] sort(int[] arr) {
+        //Base case
+        if (arr.length == 1) {
+            return arr;
+        }
+        int mid = arr.length / 2;
+        //sort first part of the array
+        int[] first = sort(Arrays.copyOfRange(arr, 0, mid));
+        //sort second part of the array
+        int[] last = sort(Arrays.copyOfRange(arr, mid, arr.length));
+        //merge sorted parts after sorting them while merging
+        return merge(first, last);
+
+    }
+
+     int[] merge(int[] first, int[] last) {
+        int[] mix = new int[first.length + last.length];
+        int i = 0, j = 0, k = 0;
+        while (i < first.length && j < last.length) {
+            //first[i]<last[j]
+            if (first[i] < last[j]) {
+                mix[k] = first[i];
+                i++;
+            } else {
+                mix[k] = last[j];
+                j++;
+            }
+            k++;
+        }
+        while(i<first.length){
+            mix[k]=first[i];
+            k++;
+            i++;
+        }
+        while(j<last.length){
+            mix[k]=last[j];
+            k++;
+            j++;
+        }
+        return mix;
+    }
+
+--In place
+     
