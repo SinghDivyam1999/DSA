@@ -329,4 +329,52 @@ class Solution {
     }
 
 --In place
-     
+     **Insted of passing copy of array range pass directly indexes
+        void sortInPlace(int[] arr,int s,int e) {
+        //Base case(Means when just one element is left)
+        if (e-s == 1) {
+            return;
+        }
+        int mid = (s+e)/2;
+        //sort first part of the array
+        sortInPlace(arr, s, mid);
+        //sort second part of the array
+         sortInPlace(arr, mid, e);
+        //merge sorted parts after sorting them while merging
+         mergeInPlace(arr,s,mid,e);
+
+    }
+
+      static void mergeInPlace(int[] arr,int s,int mid,int e) {
+        //Create a result array that will hold sorted resulted array
+        int[] mix = new int[e-s];
+        int i=s;
+        int j=mid;
+        int k=0; //counter var for index of result array
+        while (i < mid && j < e) {
+            //arr[i]<arr[j]
+            if (arr[i] < arr[j]) {
+                mix[k] = arr[i];
+                i++;
+            } else {
+                mix[k] = arr[j];
+                j++;
+            }
+            k++;
+        }
+        //If any sub part of the array length is less and some elements are still left for comparision
+        while(i<mid){
+            mix[k]=arr[i];
+              k++;
+            i++;
+        }
+        while(j<e){
+            mix[k]=arr[j];
+            k++;
+            j++;
+        }
+        //Populate the result array in main array
+        for(int l=0;l<mix.length;l++){
+            arr[s+l]=mix[l];
+        }
+    }
