@@ -28,4 +28,6 @@
 9010. Selection sort **
 
 9011. Merge sort [InPlace**]
+
+9012. Quick Sort in plcae(Mid as pivot)
             
