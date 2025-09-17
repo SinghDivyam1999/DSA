@@ -418,6 +418,7 @@ class Solution {
             }
         }
         //recursive call we will have two sub arrays as
+                //Recursive call is as per while (s <= e) condition which results in sub array as "low to e" && "s to h".
         sort(num, low, e);
         sort(num, s, hi);
 
