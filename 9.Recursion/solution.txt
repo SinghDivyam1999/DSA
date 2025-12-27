@@ -424,3 +424,72 @@ class Solution {
 
     }
     }
+
+    9013.
+
+
+    public class MazeDigonalRec {
+        public static void main(String[] args) {
+            mazeDiagonal("", 3, 3);
+        }
+
+        static void mazeDiagonal(String p, int r, int c) {
+            if (c == 1 && r == 1) {
+                System.out.println(p);
+            } else {
+                //Go diagonal if you are not at last R or C
+                if (r > 1 && c > 1) {
+                    mazeDiagonal(p + "D", r - 1, c-1);
+                }
+                //Only go down when you have row left
+                if (r > 1) {
+                    mazeDiagonal(p + "V", r - 1, c);
+                }
+                //Only go down when you have column left --> left
+                if (c > 1) {
+                    mazeDiagonal(p + "H", r, c - 1);
+                }
+
+            }
+        }
+    }
+
+
+    1914.
+
+    package Recursion;
+
+    public class MazeWithObstacle {
+        public static void main(String[] args) {
+            //false one is obstacle
+            boolean[][] board = {
+                    {true, true, true},
+                    {true, false, true},
+                    {true, true, true}
+            };
+            //p is processed result
+            mazeObst("", board, 0, 0);
+        }
+
+        static void mazeObst(String p, boolean[][] board, int r, int c) {
+            //if row is exhausted or column is exhausted
+            if (r == board.length - 1 && c == board[0].length - 1) {
+                System.out.println(p);
+                return;
+            }
+            //if you are at obstacle return (No recursion calls of that branch
+            if (!board[r][c]) {
+                return;
+            }
+            //can go down if row is not exhausted
+            if (r < board.length - 1) {
+                mazeObst(p + "D", board, r + 1, c);
+            }
+            //can go right if column is not exhausted
+            if (c < board[0].length - 1) {
+                mazeObst(p + "R", board, r, c + 1);
+            }
+
+        }
+    }
+

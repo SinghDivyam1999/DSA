@@ -30,4 +30,8 @@
 9011. Merge sort [InPlace**]
 
 9012. Quick Sort in place(Mid as pivot)
+
+9013. Maze problem
+
+9014. Maze problem with obstacle
             
