@@ -34,4 +34,17 @@
 9013. Maze problem
 
 9014. Maze problem with obstacle
-            
+
+9015. All Subset
+
+9016. Unique subset out of repeting inputs
+
+9017. Sort Array
+
+9018. Sort Stack
+
+9019. Delete middle of stack
+
+9020. Print N-Bit binary
+
+9021. Case sensitive permutation
