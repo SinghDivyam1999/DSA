@@ -493,3 +493,261 @@ class Solution {
         }
     }
 
+
+9015.
+
+public class RecSubset {
+    public static void main(String[] args) {
+        subset("abc");
+    }
+
+    static void subset(String s){
+        subsetHelper( s,0,"");
+    }
+
+    static void subsetHelper(String input,int index,String current){
+        //Base case
+        //when all the string litrals are processed which means when index becomes equals to input string size
+        if(index==input.length()){
+            System.out.println(current);
+            return;
+        }
+        //induction
+        //either include that index value to current or include
+
+        //exclude
+        subsetHelper(input,index+1,current);
+
+        //include
+        subsetHelper(input,index+1,current+input.charAt(index));
+    }
+}
+
+
+9016.
+
+public class RecUniqueSubset {
+    public static void main(String[] args) {
+        Set<String> result=subset("aac");
+        System.out.println( result.toString());
+    }
+
+    static Set<String> subset(String s){
+        HashSet<String> result=new HashSet<>();
+        return subsetHelper( s,0,"",result);
+    }
+
+    static Set<String> subsetHelper(String input,int index,String current,Set<String> result){
+        //Base case
+        //when all the string litrals are processed which means when index becomes equals to input string size
+        if(index==input.length()){
+            result.add(current);
+            return result;
+        }
+        //induction
+        //either include that index value to current or include
+
+        //exclude
+        subsetHelper(input,index+1,current,result);
+
+        //include
+        subsetHelper(input,index+1,current+input.charAt(index),result);
+        return result;
+    }
+}
+
+1917.
+
+public class RecSortArray {
+    public static void main(String[] args) {
+        int[] arr = {2, 0, 1, 4};
+        int n = arr.length;
+        sort(arr, n);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    private static void sort(int[] arr, int n) {
+        //base case{when n is zero
+        if (n <= 1) {
+            return;
+        }
+//        induction
+        //bring out last element
+        int temp = arr[n-1];
+        //sort smaller array
+        sort(arr, n-1);
+        //insert the brought out value back in array
+        insertA(arr, temp, n-1);
+    }
+
+    private static void insertA(int[] arr, int temp, int n) {
+        //BASE CASE{when n is zero or arr[n] is smaller than temp , insert the value at last
+        if (n == 0 || arr[n - 1] <= temp) {
+            arr[n] = temp;
+        } else {
+             //shift element to right
+            arr[n]=arr[n-1];
+            // recurse insert over sorter array
+            insertA(arr, temp, n - 1);
+        }
+
+    }
+
+1918.
+
+public class RecRevStack {
+    public static void main(String[] args) {
+        Stack<Integer> s = new Stack<>();
+        s.push(0);
+        s.push(3);
+        s.push(1);
+        s.push(2);
+        System.out.println(s.toString());
+        rev(s);
+        System.out.println(s.toString());
+    }
+
+    private static void rev(Stack<Integer> s) {
+        //base case{when n is zero
+        if (s.size() <= 1) {
+            return;
+        }
+//        induction
+        //bring out last element
+        int temp = s.pop();
+        //sort smaller array
+        rev(s);
+        //insert the brought out value back in array
+        insertA(s, temp);
+    }
+
+    private static void insertA(Stack<Integer> s, int temp) {
+        //BASE CASE{when n is zero or arr[n] is smaller than temp , insert the value at last
+        if (s.isEmpty()) {
+            s.push(temp);
+            return;
+        } else {
+            //shift element to right
+            int value=s.pop();
+            // recurse insert over sorter array
+            insertA(s, temp);
+            s.push(value);
+        }
+
+    }
+
+}
+
+9019.
+
+public class RecDelMidOfStack {
+    public static void main(String[] args) {
+        Stack<Integer> s = new Stack<>();
+        s.push(0);
+        s.push(3);
+        s.push(2);
+        s.push(8);
+        System.out.println(s.size());
+        System.out.println(s.toString());
+        sort(s);
+        System.out.println(s.toString());
+    }
+
+    private static void sort(Stack<Integer> s) {
+        //base case , return when stack became empty
+        if (s.isEmpty()) {
+            return;
+        }
+        //mid of stack with safe odd even
+        int k=s.size()/2+1;
+//        induction
+        //solve the deletion of mid-element
+        solve(s, k);
+    }
+
+    private static void solve(Stack<Integer> s, int mid) {
+        //BASE CASE{when k is at the element which we want to delete, just pop that element
+        if (mid==1) {
+            s.pop();
+            return;
+        } else {
+            //pop the top element and pass the smaller input
+           int value=s.pop();
+           solve(s,mid-1);
+           //push back the popped element
+           s.push(value);
+           return;
+        }
+
+    }
+
+}
+
+
+9020.
+
+public class RecNBitBinary {
+    public static void main(String[] args) {
+        binary(3);
+    }
+
+    static void binary(int n) {
+        //ou can't choose close before open so we can start with open and then choose either open or close
+        String op = "1";
+        helper(n, 0, 1, op);
+    }
+
+    static void helper(int n, int zero, int ones, String op) {
+        //Base case
+        //when op is an n bit number
+        if (op.length() == n) {
+            System.out.println(op);
+            return;
+        }
+        //induction
+        //1 can be always choose if the length of output is still in range of n , as number 1 can be any times in op
+        //but you can choose 0 only when your zeros are less than ones
+
+        helper(n, zero, ones + 1, op + "1");
+
+        if (zero < ones) {
+            helper(n, zero + 1, ones, op + "0");
+        }
+        return;
+    }
+}
+
+
+1921.
+
+public class RecCasePermutation {
+    public static void main(String[] args) {
+        String s = "a1c";
+        solve(s, "");
+    }
+
+    private static void solve(String ip, String op) {
+        //base case , return when stack became empty
+        if (ip.isEmpty()) {
+            System.out.println(op);
+            return;
+        }
+         //induction
+        //bring out first element
+        // small the input
+        //if it is a letter then we have two options to add it in output, small or capital
+        char ch = ip.charAt(0);
+        String rest = ip.substring(1);
+        if (Character.isLetter(ch)) {
+            //hypothesis
+            solve(rest, op + Character.toLowerCase(ch));
+            solve(rest, op + Character.toUpperCase(ch));
+        } else {
+            //if it is a digit then we have only one option to add it in output
+            solve(rest, op + ch);
+        }
+        return;
+    }
+
+}
+
