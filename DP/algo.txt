@@ -1,0 +1,52 @@
+9001. pow(x,n)
+
+take a long varible as answer
+convert n to long as nn to avoid overflow in caseof negative integer
+If n is negative
+ convert n to nn positive value by multiplying it to -1.
+while nn is positive
+  if nn is odd (nn%2==1) 
+  ans will be ans*x and reduce nn by 1
+  else if even
+   x=x*x
+   nn=nn/2
+return 
+  if n is negative return 1.0/(double) ans;
+  else ans
+
+
+9002. Count Good number(1922)
+create a MOD a final variable MOD=1_000_000_007;
+create a Fast exponentiation function power to calculate power with base and exponent 
+
+ power(long base, long exponent)
+ create a long result variable assigned with 1 to accumulate the results
+ mod the base to keep range check base=base % MOD
+  while(exponent>0)
+     if(exponent is odd)
+        result=(result*base)%MOD
+     else
+        base=(base*base)%MOD
+        exponent=exponent/2 (Optimize by doing half of exponent)
+
+Now use power to calculate exponents
+  even possible places are (n+1)/2
+  odd " "                   n/2        
+
+  even count= power(5,even possible places)
+  odd count= power(4, odd possible places)
+  return (even count*odd count)%MOD
+
+
+
+9003.Generate Parathesis
+    create a backtracking method as
+           generateString(List<String> result,int openN,int closeN,String current)
+           Create base case as 
+                 if openN==0 && closeN==0
+                  result.add(current);
+                  return result
+           next case will be to add "("
+               add when 0openN>0 and reduce openN by 1
+           next case will be to add ")"
+               add when closeN>openN reduce closeN by 1
